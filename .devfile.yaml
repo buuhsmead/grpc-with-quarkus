@@ -1,7 +1,7 @@
 schemaVersion: 2.1.0
 metadata:
   name: grpc-with-quarkus
-  version: 0.1.0-SNAPSHOT
+  version: 0.1.0
   icon: https://design.jboss.org/quarkus/logo/final/SVG/quarkus_icon_rgb_default.svg
   tags:
     - Java
@@ -19,13 +19,6 @@ parent:
   id: java-quarkus
   registryUrl: 'https://registry.devfile.io'
 components:
-  - name: image-build
-    image:
-      imageName: java-quarkus-image:latest
-      dockerfile:
-        uri: src/main/docker/Dockerfile.jvm.staged
-        buildContext: .
-        rootRequired: false
   - name: kubernetes-deploy
     attributes:
       deployment/replicas: 1
