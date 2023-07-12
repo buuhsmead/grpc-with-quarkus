@@ -44,5 +44,5 @@ commands:
         - build-image
         - deployk8s
       group:
-        kind: deploy
+        kind: run
         isDefault: true    
