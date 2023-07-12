@@ -1,7 +1,0 @@
-schemaVersion: 2.1.0
-projects:
-  - git:
-      remotes:
-        origin: https://github.com/buuhsmead/grpc-with-quarkus.git
-    name: grpc-with-quarkus
-    
