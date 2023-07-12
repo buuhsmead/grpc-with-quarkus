@@ -1,0 +1,23 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+commonLabels:
+    app.kubernetes.io/name: grpc-with-quarkus
+    app.kubernetes.io/version: 0.1.0-SNAPSHOT
+    app.openshift.io/runtime: quarkus
+    app: grpc-with-quarkus # Important for Kiali
+    version: v1   # Important for subsets and Kiali
+
+commonAnnotations:
+    app.openshift.io/vcs-url: https://github.com/buuhsmead/grpc-with-quarkus.git
+    app.quarkus.io/commit-id: <<unknown>>
+    app.quarkus.io/build-timestamp: <<unknown>>
+
+resources:
+# - ns.yaml
+- sa.yaml
+- is-jdk.yaml
+- is-app.yaml
+- svc.yaml
+- bc.yaml   # Needs a manual start
+- dc.yaml   # Needs an adjustment on Image

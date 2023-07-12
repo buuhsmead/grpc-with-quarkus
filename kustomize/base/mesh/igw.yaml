@@ -1,0 +1,21 @@
+kind: Gateway
+apiVersion: networking.istio.io/v1beta1
+metadata:
+  name: igw
+  # namespace: app-cees-bcu-app
+spec:
+  servers:
+    - port:
+        number: 443
+        protocol: HTTPS
+        name: https
+      hosts:
+        - >-
+          grpc-with-quarkus.app-cees-bcu-app.apps.freubel.sandbox2538.opentlc.com
+      tls:
+        mode: SIMPLE
+        # mode: MUTUAL
+        credentialName: igw-credential
+  selector:
+    istio: ingressgateway
+

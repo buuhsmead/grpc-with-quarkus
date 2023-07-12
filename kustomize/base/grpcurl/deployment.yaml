@@ -1,0 +1,48 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: grpcurl
+  labels:
+    app: grpcurl
+    version: v1.87
+    app.kubernetes.io/component: grpcurl
+    app.kubernetes.io/instance: grpcurl
+    app.kubernetes.io/name: grpcurl
+    app.kubernetes.io/part-of: grpcurl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grpcurl
+  template:
+    metadata:
+      labels:
+        app: grpcurl
+        version: v1.87
+        deploymentconfig: grpcurl
+        sidecar.istio.io/inject: 'true'
+      annotations:
+        sidecar.istio.io/inject: 'true'
+    spec:
+      containers:
+        - name: grpcurl
+          command:
+            - /bin/bash
+            - '-c'
+            - '--'
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          imagePullPolicy: Always
+          image: quay.io/hdaems/ubi8-grpcurl:latest
+          args:
+            - while true; do sleep 30; done;
+          resources:
+            requests:
+              cpu: '10m'
+              memory: '125Mi'
+            limits:
+              cpu: '100m'
+              memory: '250Mi'
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30

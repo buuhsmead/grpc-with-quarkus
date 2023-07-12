@@ -1,0 +1,29 @@
+kind: DestinationRule
+apiVersion: networking.istio.io/v1beta1
+metadata:
+  name: idr
+  # namespace: app-cees-bcu-app
+spec:
+  host: grpc-with-quarkus.app-cees-bcu-app.svc.cluster.local
+  trafficPolicy:
+    loadBalancer:
+      simple: LEAST_REQUEST
+  subsets:
+    - name: testing
+      labels:
+        version: v1
+      trafficPolicy:
+        portLevelSettings:
+          - port:
+              number: 8080
+            loadBalancer:
+              simple: ROUND_ROBIN
+    - name: testing
+      labels:
+        version: v1
+      trafficPolicy:
+        portLevelSettings:
+          - port:
+              number: 9000
+            loadBalancer:
+              simple: ROUND_ROBIN

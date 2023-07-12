@@ -1,0 +1,45 @@
+---
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  annotations:
+    app.openshift.io/vcs-url: <<unknown>>
+    app.quarkus.io/commit-id: b36fec3731fd5384a8351434b4ae6a36ba1ef25b
+    app.quarkus.io/build-timestamp: 2023-07-12 - 08:20:58 +0000
+  labels:
+    app.kubernetes.io/name: grpc-with-quarkus
+    app.kubernetes.io/version: 0.1.0-SNAPSHOT
+    app.openshift.io/runtime: quarkus
+  name: grpc-with-quarkus
+spec:
+  output:
+    to:
+      kind: ImageStreamTag
+      name: grpc-with-quarkus:0.1.0-SNAPSHOT
+  successfulBuildsHistoryLimit: 2
+  failedBuildsHistoryLimit: 2
+  strategy:
+    type: Docker                      
+    dockerStrategy:
+      dockerfilePath: src/main/docker/Dockerfile.jvm.staged
+      from:
+        kind: ImageStreamTag
+        name: 'openjdk-17:1.14'         
+  source:
+    type: Git
+    git:
+      uri: 'https://github.com/buuhsmead/grpc-with-quarkus.git'
+    contextDir: '/'
+  triggers:
+    - type: Generic
+      generic:
+        secretReference:
+          name: java-sample-generic-webhook-secret
+    - type: GitHub
+      github:
+        secretReference:
+          name: java-sample-github-webhook-secret
+    - type: ImageChange
+      imageChange: {}
+    - type: ConfigChange
+  runPolicy: Serial       

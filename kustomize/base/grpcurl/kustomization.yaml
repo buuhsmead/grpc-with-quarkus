@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+commonLabels:
+    app: grpcurl
+    version: v1.87
+    app.openshift.io/vcs-uri: https://github.com/buuhsmead/grpcurl.git
+    app.openshift.io/vcs-url: https://github.com/buuhsmead/grpcurl.git
+
+resources:
+- deployment.yaml

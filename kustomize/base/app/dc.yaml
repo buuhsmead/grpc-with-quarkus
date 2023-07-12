@@ -1,0 +1,74 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    app.openshift.io/vcs-url: https://github.com/buuhsmead/grpc-with-quarkus.git
+    # app.quarkus.io/commit-id: b36fec3731fd5384a8351434b4ae6a36ba1ef25b
+    # app.quarkus.io/build-timestamp: 2023-07-12 - 08:20:58 +0000
+  labels:
+    app.openshift.io/runtime: quarkus
+    app.kubernetes.io/name: grpc-with-quarkus
+    app.kubernetes.io/version: 0.1.0-SNAPSHOT
+  name: grpc-with-quarkus
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: grpc-with-quarkus
+      app.kubernetes.io/version: 0.1.0-SNAPSHOT
+  template:
+    metadata:
+      labels:
+        app.openshift.io/runtime: quarkus
+        app.kubernetes.io/name: grpc-with-quarkus
+        app.kubernetes.io/version: 0.1.0-SNAPSHOT
+        sidecar.istio.io/inject: 'true'
+    spec:
+      containers:
+        - env:
+            - name: JAVA_APP_JAR
+              value: /deployments/quarkus-run.jar
+            - name: GREETING_MESSAGE
+              value: via env gedaan
+            - name: TIMER_PERIOD
+              value: '2000'
+            - name: QUARKUS_GRPC_SERVER_ENABLE_REFLECTION_SERVICE
+              value: 'true'              
+          image: image-registry.openshift-image-registry.svc:5000/hdaems/grpc-with-quarkus:0.1.0-SNAPSHOT
+          imagePullPolicy: Always
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /q/health/live
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 0
+            periodSeconds: 30
+            successThreshold: 1
+            timeoutSeconds: 10
+          name: grpc-with-quarkus
+          ports:
+            - containerPort: 9000
+              name: grpc
+              protocol: TCP
+            - containerPort: 8080
+              name: http
+              protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /q/health/ready
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 0
+            periodSeconds: 30
+            successThreshold: 1
+            timeoutSeconds: 10
+          resources:
+            requests:
+              cpu: '10m'
+              memory: '125Mi'
+            limits:
+              cpu: '100m'
+              memory: '250Mi'

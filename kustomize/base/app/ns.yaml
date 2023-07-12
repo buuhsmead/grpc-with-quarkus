@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    type: app-cees-bcu # Needed for IngressController
+  name: app-cees-bcu-app
+spec:
+  finalizers:
+  - kubernetes
