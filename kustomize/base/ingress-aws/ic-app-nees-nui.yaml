@@ -1,0 +1,17 @@
+---
+apiVersion: operator.openshift.io/v1
+kind: IngressController
+metadata:
+  name: app-nees-nui
+  namespace: openshift-ingress-operator
+spec:
+  domain: app-nees-nui.freubel.sandbox2538.opentlc.com
+  namespaceSelector:
+    matchLabels:
+      type: app-nees-nui
+  replicas: 1
+  endpointPublishingStrategy:
+    loadBalancer:
+      scope: External
+    type: LoadBalancerService
+    

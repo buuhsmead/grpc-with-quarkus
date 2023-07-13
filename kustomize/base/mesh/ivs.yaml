@@ -5,7 +5,7 @@ metadata:
   # namespace: app-cees-bcu-app
 spec:
   hosts:
-    - grpc-with-quarkus.app-cees-bcu-app.apps.freubel.sandbox2538.opentlc.com
+    - grpc-with-quarkus.app-cees-cs.freubel.sandbox2538.opentlc.com
   gateways:
     - igw
   http:
@@ -15,14 +15,14 @@ spec:
             exact: /hello
       route:
         - destination:
-            host: grpc-with-quarkus.app-cees-bcu-app.svc.cluster.local
+            host: grpc-with-quarkus.app-cees-cs-app.svc.cluster.local
             subset: testing
             port:
               number: 8080
     - name: grpc-ingress
       route:
         - destination:
-            host: grpc-with-quarkus.app-cees-bcu-app.svc.cluster.local
+            host: grpc-with-quarkus.app-cees-cs-app.svc.cluster.local
             subset: testing
             port:
               number: 9000

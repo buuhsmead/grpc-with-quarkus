@@ -4,7 +4,7 @@ metadata:
   name: idr
   # namespace: app-cees-bcu-app
 spec:
-  host: grpc-with-quarkus.app-cees-bcu-app.svc.cluster.local
+  host: grpc-with-quarkus.app-cees-cs-app.svc.cluster.local
   trafficPolicy:
     loadBalancer:
       simple: LEAST_REQUEST
