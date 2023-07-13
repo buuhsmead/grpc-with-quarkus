@@ -19,5 +19,5 @@ resources:
 - is-jdk.yaml
 - is-app.yaml
 - svc.yaml
-- bc.yaml   # Needs a manual start
-- dc.yaml   # Needs an adjustment on Image
+# - bc.yaml  # This is a different step in the whole cycle 
+- dc.yaml  
