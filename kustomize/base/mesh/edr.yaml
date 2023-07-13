@@ -1,0 +1,22 @@
+apiVersion: networking.istio.io/v1beta1
+kind: DestinationRule
+metadata:
+  name: edr
+  # namespace: app-nees-nui-app
+spec:
+  host: grpc-with-quarkus.app-cees.freubel.sandbox2538.opentlc.com
+  trafficPolicy:
+    tls:
+      mode: SIMPLE
+    loadBalancer:
+      simple: ROUND_ROBIN
+      localityLbSetting:
+        enabled: true 
+        failover:
+          - from: primary
+            to: secondary
+    outlierDetection:
+      baseEjectionTime: 1m
+      consecutive5xxErrors: 1
+      interval: 1s    
+        

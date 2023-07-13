@@ -9,3 +9,5 @@ resources:
 - idr.yaml
 - igw.yaml
 - ivs.yaml
+- ese.yaml
+- edr.yaml

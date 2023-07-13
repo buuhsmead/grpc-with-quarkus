@@ -1,0 +1,27 @@
+apiVersion: networking.istio.io/v1beta1
+kind: ServiceEntry
+metadata:
+  name: ese
+  # namespace: app-nees-nui-app
+spec:
+  hosts:
+    - grpc-with-quarkus.app-cees.freubel.sandbox2538.opentlc.com
+  ports:
+    - number: 8080
+      protocol: HTTP
+      name: http-port
+      targetPort: 443
+  location: MESH_EXTERNAL    
+  resolution: DNS
+  endpoints:
+    - address: grpc-with-quarkus.app-cees-cs.freubel.sandbox2538.opentlc.com
+      labels:
+        cluster: primary
+      locality: primary
+      weight: 100  
+    - address: grpc-with-quarkus.app-cees-bcu.freubel.sandbox2538.opentlc.com
+      labels:
+        cluster: secondary
+      locality: secondary
+
+
