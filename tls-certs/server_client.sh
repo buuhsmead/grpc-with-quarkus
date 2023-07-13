@@ -16,7 +16,7 @@ ${OPENSSL} req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -subj '/C=NL/O=Bu
 
 # Generate a certificate and a private key for
 ${OPENSSL} req -out server.csr -newkey rsa:2048 -nodes -keyout server.key -subj '/CN=server.sandboxXXXX.opentlc.com/O=freubel organization'
-${OPENSSL} x509 -req -sha256 -days 365 -CA CA.crt -CAkey CA.key -set_serial 0 -in server.csr -out server.crt -extfile <(printf "subjectAltName=DNS:${SAN}")
+${OPENSSL} x509 -req -sha256 -days 365 -CA CA.crt -CAkey CA.key -set_serial 0 -in server.csr -out server.crt -extfile <(printf "subjectAltName=DNS:%s" "${SAN}")
 rm -f server.csr
 
 
