@@ -1,0 +1,27 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: evs # gateway routing
+spec:
+  hosts:
+    - grpc-with-quarkus.app-cees.freubel.sandbox2538.opentlc.com
+  gateways:
+    - mesh
+    - egw
+  http:
+    - match:
+        - gateways:
+            - mesh
+          port: 8080
+      route:
+        - destination:
+            host: istio-egressgateway.app-nees-nui-smcp.svc.cluster.local
+    - match:
+        - gateways:
+            - egw
+          port: 8080
+      route:
+        - destination:
+            host: grpc-with-quarkus.app-cees.freubel.sandbox2538.opentlc.com
+  exportTo:
+    - '*' 

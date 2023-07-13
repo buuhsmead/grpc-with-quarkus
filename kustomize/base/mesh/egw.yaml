@@ -1,0 +1,20 @@
+apiVersion: networking.istio.io/v1beta1
+kind: Gateway
+metadata:
+  name: egw
+spec:
+  servers:
+    - port:
+        number: 8080
+        protocol: HTTP
+        name: http
+      hosts:
+        - '*'
+    - port:
+        number: 9000
+        protocol: HTTP2
+        name: grpc
+      hosts:
+        - '*'        
+  selector:
+    istio: egressgateway

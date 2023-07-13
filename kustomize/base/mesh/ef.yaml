@@ -1,0 +1,36 @@
+apiVersion: networking.istio.io/v1beta1
+kind: ServiceEntry
+metadata:
+  name: external-address
+spec:
+  endpoints:
+  - address: 52.28.196.232
+    labels:
+      cluster: cu
+      name: primary
+    locality: primary
+    ports:
+      https: 443
+    weight: 100
+  - address: 52.29.6.221
+    labels:
+      cluster: bcu
+      name: secondary
+    locality: secondary
+    ports:
+      https: 443
+  exportTo:
+    - '*'
+  hosts:
+  - query-service-ees-app-development.app-cees.eulisa.local
+  location: MESH_EXTERNAL
+  ports:
+  - name: https
+    number: 8080
+    protocol: HTTP2
+  resolution: STATIC
+  subjectAltNames:
+  - query-service-ees-app-development.app-cees.eulisa.local
+
+# PING hello.app-cees-cs.freubel.sandbox2538.opentlc.com (52.28.196.232)
+# PING hello.app-cees-bcu.freubel.sandbox2538.opentlc.com (52.29.6.221)
