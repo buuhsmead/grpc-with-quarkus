@@ -11,3 +11,7 @@ resources:
 - ivs.yaml
 - ese.yaml
 - edr.yaml
+- egw.yaml
+- evs.yaml
+# - esvc.yaml
+

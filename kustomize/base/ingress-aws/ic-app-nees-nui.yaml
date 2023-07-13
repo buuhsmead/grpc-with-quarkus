@@ -13,5 +13,6 @@ spec:
   endpointPublishingStrategy:
     loadBalancer:
       scope: External
+      # scope: Internal
     type: LoadBalancerService
     

@@ -7,23 +7,23 @@ spec:
   host: grpc-with-quarkus.app-nees-nui-app.svc.cluster.local
   trafficPolicy:
     loadBalancer:
-      simple: LEAST_REQUEST
+      simple: ROUND_ROBIN
   subsets:
     - name: testing
       labels:
         version: v1
-      trafficPolicy:
-        portLevelSettings:
-          - port:
-              number: 8080
-            loadBalancer:
-              simple: ROUND_ROBIN
-    - name: testing
-      labels:
-        version: v1
-      trafficPolicy:
-        portLevelSettings:
-          - port:
-              number: 9000
-            loadBalancer:
-              simple: ROUND_ROBIN
+    #   trafficPolicy:
+    #     portLevelSettings:
+    #       - port:
+    #           number: 8080
+    #         loadBalancer:
+    #           simple: ROUND_ROBIN
+    # - name: testing
+    #   labels:
+    #     version: v1
+    #   trafficPolicy:
+    #     portLevelSettings:
+    #       - port:
+    #           number: 9000
+    #         loadBalancer:
+    #           simple: ROUND_ROBIN

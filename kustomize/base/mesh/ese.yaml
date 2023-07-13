@@ -4,8 +4,11 @@ metadata:
   name: ese
   # namespace: app-nees-nui-app
 spec:
+  exportTo:
+    - '*'
   hosts:
     - grpc-with-quarkus.app-cees.freubel.sandbox2538.opentlc.com
+    # - grpc-with-quarkus-local.app-nees-nui-app.svc.cluster.local
   ports:
     - number: 8080
       protocol: HTTP
@@ -17,11 +20,17 @@ spec:
     - address: grpc-with-quarkus.app-cees-cs.freubel.sandbox2538.opentlc.com
       labels:
         cluster: primary
-      locality: primary
-      weight: 100  
+      locality: primary 
+      weight: 100 
+      ports:
+        http-port: 443
     - address: grpc-with-quarkus.app-cees-bcu.freubel.sandbox2538.opentlc.com
       labels:
         cluster: secondary
       locality: secondary
+      ports:
+        http-port: 443      
 
 
+# PING hello.app-cees-cs.freubel.sandbox2538.opentlc.com (52.28.196.232)
+# PING hello.app-cees-bcu.freubel.sandbox2538.opentlc.com (52.29.6.221)

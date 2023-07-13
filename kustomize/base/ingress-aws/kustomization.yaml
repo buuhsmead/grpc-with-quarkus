@@ -8,4 +8,6 @@ commonLabels:
 resources:
 - ic-app-cees-bcu.yaml # app-cees-bcu.freubel.sandbox2538.opentlc.com
 - ic-app-cees-cs.yaml  # app-cees-cs.freubel.sandbox2538.opentlc.com
+# - ic-app-cees.yaml     # app-cees.freubel.sandbox2538.opentlc.com
 - ic-app-nees-nui.yaml # app-nees-nui.freubel.sandbox2538.opentlc.com
+
