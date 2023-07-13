@@ -1,15 +1,17 @@
+---
 apiVersion: operator.openshift.io/v1
 kind: IngressController
 metadata:
-  name: app-cees-bcu
+  name: app-cees-cs
   namespace: openshift-ingress-operator
 spec:
-  domain: app-cees-bcu.freubel.sandbox2538.opentlc.com
+  domain: app-cees-cs.freubel.sandbox2538.opentlc.com
   namespaceSelector:
     matchLabels:
-      type: app-cees-bcu
+      type: app-cees-cs
   replicas: 1
   endpointPublishingStrategy:
     loadBalancer:
       scope: External
     type: LoadBalancerService
+    
