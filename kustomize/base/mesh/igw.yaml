@@ -2,7 +2,7 @@ kind: Gateway
 apiVersion: networking.istio.io/v1beta1
 metadata:
   name: igw
-  # namespace: app-cees-bcu-app
+  # namespace: app-nees-nui-app
 spec:
   servers:
     - port:
@@ -10,11 +10,11 @@ spec:
         protocol: HTTPS
         name: https
       hosts:
-        - grpc-with-quarkus.app-cees-cs.freubel.sandbox2538.opentlc.com
+        - grpc-with-quarkus.app-nees-nui.freubel.sandbox2538.opentlc.com
       tls:
         mode: SIMPLE
         # mode: MUTUAL
-        credentialName: igw-app-cees-cs-smcp
+        credentialName: igw-app-nees-nui-smcp
   selector:
     istio: ingressgateway
 

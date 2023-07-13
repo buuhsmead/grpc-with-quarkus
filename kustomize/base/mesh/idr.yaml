@@ -2,9 +2,9 @@ kind: DestinationRule
 apiVersion: networking.istio.io/v1beta1
 metadata:
   name: idr
-  # namespace: app-cees-bcu-app
+  # namespace: app-nees-nui-app
 spec:
-  host: grpc-with-quarkus.app-cees-cs-app.svc.cluster.local
+  host: grpc-with-quarkus.app-nees-nui-app.svc.cluster.local
   trafficPolicy:
     loadBalancer:
       simple: LEAST_REQUEST
