@@ -20,3 +20,15 @@ spec:
       consecutive5xxErrors: 1
       interval: 1s    
       
+
+
+# spec:
+#   host: grpc-with-quarkus.app-cees.freubel.sandbox2538.opentlc.com
+#   trafficPolicy:
+#     loadBalancer:
+#       simple: ROUND_ROBIN
+#     portLevelSettings:
+#       - port:
+#           number: 443
+#         tls:
+#           mode: SIMPLE
