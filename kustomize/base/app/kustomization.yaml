@@ -6,7 +6,7 @@ commonLabels:
     app.kubernetes.io/version: 0.1.0-SNAPSHOT
     app.openshift.io/runtime: quarkus
     app: grpc-with-quarkus # Important for Kiali
-    version: v1   # Important for subsets and Kiali
+    version: "v1"  # Important for subsets and Kiali
 
 commonAnnotations:
     app.openshift.io/vcs-url: https://github.com/buuhsmead/grpc-with-quarkus.git

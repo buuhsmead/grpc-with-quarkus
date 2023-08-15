@@ -21,11 +21,11 @@ spec:
   failedBuildsHistoryLimit: 2
   resources:
     requests:
-      memory: 900mi
-      cpu: 300
+      memory: 900Mi
+      cpu: 300m
     limits:
-      memory: 1500mi
-      cpu: 900
+      memory: 1500Mi
+      cpu: 900m
   postCommit: {}
   strategy:
     type: Source
