@@ -19,5 +19,5 @@ resources:
 - is-jdk.yaml
 - is-app.yaml
 - svc.yaml
-# - bc.yaml  # This is a different step in the whole cycle 
+- bc.yaml  # This is a different step in the whole cycle 
 - dc.yaml  

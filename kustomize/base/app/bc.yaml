@@ -12,19 +12,27 @@ metadata:
     app.openshift.io/runtime: quarkus
   name: grpc-with-quarkus
 spec:
+  nodeSelector: null
   output:
     to:
       kind: ImageStreamTag
       name: grpc-with-quarkus:0.1.0-SNAPSHOT
   successfulBuildsHistoryLimit: 2
   failedBuildsHistoryLimit: 2
+  resources:
+    requests:
+      memory: 900mi
+      cpu: 300
+    limits:
+      memory: 1500mi
+      cpu: 900
+  postCommit: {}
   strategy:
-    type: Docker                      
-    dockerStrategy:
-      dockerfilePath: src/main/docker/Dockerfile.jvm.staged
+    type: Source
+    sourceStrategy:
       from:
         kind: ImageStreamTag
-        name: 'openjdk-17:1.14'         
+        name: 'openjdk-17:1.15'        
   source:
     type: Git
     git:
