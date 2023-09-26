@@ -2,12 +2,12 @@
 #
 #
 
-export OPENSSL_HOME=/usr/local/Cellar/openssl@3/3.1.1_1/
+export OPENSSL_HOME=/usr/local/Cellar/openssl@3/3.1.2/
 export OPENSSL=${OPENSSL_HOME}/bin/openssl
 
-export DOMAIN=app-cees-cs.freubel.sandbox2538.opentlc.com
+export DOMAIN=tls-server.apps-crc.testing
 export SAN="grpc-with-quarkus.${DOMAIN}"
-export NS_SCMP=app-cees-cs-smcp
+export NS_SCMP=tls-server-istio
 
 
 
@@ -15,13 +15,13 @@ export NS_SCMP=app-cees-cs-smcp
 ${OPENSSL} req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -subj '/C=NL/O=BuuhSmead/CN=Self CA' -keyout CA.key -out CA.crt
 
 # Generate a certificate and a private key for
-${OPENSSL} req -out server.csr -newkey rsa:2048 -nodes -keyout server.key -subj '/CN=server.sandboxXXXX.opentlc.com/O=freubel organization'
-${OPENSSL} x509 -req -sha256 -days 365 -CA CA.crt -CAkey CA.key -set_serial 0 -in server.csr -out server.crt -extfile <(printf "subjectAltName=DNS:%s , DNS:grpc-with-quarkus.app-cees.freubel.sandbox2538.opentlc.com , DNS:52.28.196.232" "${SAN}")
+${OPENSSL} req -out server.csr -newkey rsa:2048 -nodes -keyout server.key -subj '/CN=grpc-with-quarkus/O=freubel organization'
+${OPENSSL} x509 -req -sha256 -days 365 -CA CA.crt -CAkey CA.key -set_serial 0 -in server.csr -out server.crt -extfile <(printf "subjectAltName=DNS:%s , DNS:grpc-with-quarkus.tls-server.apps-crc.testing" "${SAN}")
 rm -f server.csr
 
 
 # Generate a client certificate and private key:
-${OPENSSL} req -out client.csr -newkey rsa:2048 -nodes -keyout client.key -subj '/CN=client.sandboxXXXX.opentlc.com/O=freubel organization'
+${OPENSSL} req -out client.csr -newkey rsa:2048 -nodes -keyout client.key -subj '/CN=grpc-with-quarkus/O=freubel organization'
 ${OPENSSL} x509 -req -sha256 -days 365 -CA CA.crt -CAkey CA.key -set_serial 1 -in client.csr -out client.crt
 rm -rf client.csr
 

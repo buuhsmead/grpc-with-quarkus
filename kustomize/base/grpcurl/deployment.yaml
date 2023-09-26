@@ -4,7 +4,7 @@ metadata:
   name: grpcurl
   labels:
     app: grpcurl
-    version: v1.87
+    version: "v1.87"
     app.kubernetes.io/component: grpcurl
     app.kubernetes.io/instance: grpcurl
     app.kubernetes.io/name: grpcurl

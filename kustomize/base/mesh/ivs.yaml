@@ -12,7 +12,7 @@ spec:
     - name: http-ingress
       match:
         - uri: # It is important to distinguish between the two ports based on http path!
-            exact: /hello
+            prefix: '^/hello*'
       route:
         - destination:
             host: grpc-with-quarkus.app-nees-nui-app.svc.cluster.local

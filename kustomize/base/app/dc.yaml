@@ -74,7 +74,8 @@ spec:
           #       - /dev/null
           #       - '-w'
           #       - '%{http_code}'
-          #       - 'https://www.google.com'            
+          #       - 'https://www.google.com'   
+          # curl -s -o /dev/null -w '%{http_code}' rpc-with-quarkus.poc-master.svc.cluster.local:8080/q/health/ready         
           resources:
             requests:
               cpu: '10m'
