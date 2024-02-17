@@ -3,11 +3,12 @@
 # https://access.redhat.com/articles/6891491
 
 
-export FQDN=star.cloud.daems.org
+#export FQDN=star.cloud.daems.org
+export FQDN=huub-nui-active2-gateway
 
 
 
-export OPENSSL_HOME=/usr/local/Cellar/openssl@3/3.1.2/
+export OPENSSL_HOME=/usr/local/Cellar/openssl@3/3.1.3/
 export OPENSSL=${OPENSSL_HOME}/bin/openssl
 
 # Create the CA certificate and private key to sign the certificate for your services:
