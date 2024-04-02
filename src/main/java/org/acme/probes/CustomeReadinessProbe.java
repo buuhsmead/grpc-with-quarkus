@@ -1,7 +1,7 @@
 package org.acme.probes;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 
 import org.acme.GlobalConfig;
 import org.eclipse.microprofile.health.HealthCheck;
@@ -12,7 +12,7 @@ import org.eclipse.microprofile.health.Readiness;
 
 // curl localhost:8080/q/health/ready
 
-@Readiness  
+@Readiness
 @ApplicationScoped
 public class CustomeReadinessProbe implements HealthCheck {
 

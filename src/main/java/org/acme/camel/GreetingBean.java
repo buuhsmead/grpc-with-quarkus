@@ -1,9 +1,10 @@
 package org.acme.camel;
 
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Named;
 
+
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Named;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
 import io.quarkus.runtime.annotations.RegisterForReflection;
