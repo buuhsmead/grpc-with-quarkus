@@ -1,0 +1,29 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: quarkusapp
+  title: Example quarkus component for RHDH
+  description: |
+    This is the example quarkus component for RHDH
+  links:
+    - title: QuarkusApp Website
+      url: https://quarkusapp.example.com
+    - title: QuarkusApp Issues
+      url: https://jira.quarkusapp.com
+    - title: Blog
+      url: https://quarkusapp.example.com/blog
+    - title: Slack
+      url: https://quarkusapp.example.slack.com
+  annotations:
+    argocd/app-name: 'quarkusapp'
+    backstage.io/kubernetes-id: 'quarkusapp'
+    github.com/project-slug: myorg/quarkusapp
+    quay.io/repository-slug: myorg/quarkusapp
+    backstage.io/kubernetes-namespace: quarkusapp
+spec:
+  type: website
+  system: quarkusapp
+  owner: quarkusapp-dev-team
+  lifecycle: production
+  dependsOn:
+    - resource:quarkusappdb

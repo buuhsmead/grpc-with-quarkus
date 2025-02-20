@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: grpc-with-quarkus-location
+  description: A collection of all the catalog entities in the 'grpc-with-quarkus' example app
+spec:
+  targets:
+    - ./group.yaml
+    - ./system.yaml
+    - ./quarkus-db.yaml
+    - ./quarkusapp.yaml
