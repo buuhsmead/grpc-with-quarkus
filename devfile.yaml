@@ -17,45 +17,51 @@ projects:
         origin: https://github.com/buuhsmead/grpc-with-quarkus.git
     name: grpc-with-quarkus
 components:
-  - name: universal-developer-image
+  - name: tools
     container:
-      image: registry.redhat.io/devspaces/udi-rhel9:latest
-  - name: image-build
-    image:
-      imageName: java-quarkus-image:latest
-      dockerfile:
-        uri: src/main/docker/Dockerfile.jvm.staged
-        buildContext: .
-        rootRequired: false
-  - name: kubernetes-deploy
-    attributes:
-      deployment/replicas: 1
-      deployment/cpuRequest: 10m
-      deployment/memoryRequest: 100Mi
-      deployment/container-port: 8081
-    kubernetes:
-      uri: deploy.yaml
+      image: registry.redhat.io/devspaces/udi-rhel9:3.18
+      env:
+        - name: QUARKUS_HTTP_HOST
+          value: 0.0.0.0
       endpoints:
-        - name: http-8080
+        - exposure: none
+          name: debug
+          protocol: tcp
+          targetPort: 5005
+        - exposure: public
+          name: hello-greeting
+          protocol: https
           targetPort: 8080
-          path: /
-          secure: false
-        - name: grpc-9000
-          targetPort: 9000
-          path: /
-          secure: false
+          path: /hello/greeting/devspaces-user
+      volumeMounts:
+        - name: m2
+          path: /home/user/.m2
+      cpuLimit: '4'
+      cpuRequest: '1'
+      memoryLimit: '8G'
+      memoryRequest: '4G'
+      mountSources: true
+  - name: m2
+    volume:
+      size: 1G
 commands:
-  - id: build-image
-    apply:
-      component: image-build
-  - id: deployk8s
-    apply:
-      component: kubernetes-deploy
-  - id: deploy
-    composite:
-      commands:
-        - build-image
-        - deployk8s
+  - id: 1-package
+    exec:
+      label: "1. Package the application"
+      component: tools
+      workingDir: ${PROJECTS_ROOT}/quarkus-quickstarts/getting-started
+      commandLine: "mvn package"
       group:
-        kind: deploy
+        kind: build
         isDefault: true
+  - id: 2-startdev
+    exec:
+      label: "2. Start Development mode (Hot reload + debug)"
+      component: tools
+      workingDir: ${PROJECTS_ROOT}/quarkus-quickstarts/getting-started
+      commandLine: "mvn compile quarkus:dev"
+      group:
+        kind: run
+        isDefault: true
+
+
