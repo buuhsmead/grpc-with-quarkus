@@ -1,7 +1,6 @@
 schemaVersion: 2.3.0
 metadata:
   name: grpc-with-quarkus
-  version: 0.2.0
   icon: https://design.jboss.org/quarkus/logo/final/SVG/quarkus_icon_rgb_default.svg
   displayName: Quarkus Java GRPC OPENAPI
   description: Quarkus with Java and gRPC and OpenApi
