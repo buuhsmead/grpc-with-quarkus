@@ -1,4 +1,4 @@
-schemaVersion: 2.3.0
+schemaVersion: 2.2.0
 metadata:
   name: grpc-with-quarkus
   icon: https://design.jboss.org/quarkus/logo/final/SVG/quarkus_icon_rgb_default.svg
@@ -17,6 +17,9 @@ projects:
         origin: https://github.com/buuhsmead/grpc-with-quarkus.git
     name: grpc-with-quarkus
 components:
+  - name: universal-developer-image
+    container:
+      image: registry.redhat.io/devspaces/udi-rhel9:latest
   - name: image-build
     image:
       imageName: java-quarkus-image:latest
