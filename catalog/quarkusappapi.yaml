@@ -12,4 +12,4 @@ spec:
   lifecycle: production
   owner: group:default/quarkusapp-dev-team
   definition: 
-    $text: http://example-apicurioregistry-kafkasql.apicurio-registry-operator.router-default.apps.west.jgmpn.gcp.redhatworkshops.io/ui/artifacts/rhdh-dev/openapi/versions/latest
+    $text: https://github.com/buuhsmead/grpc-with-quarkus/blob/main/api/api.yaml
