@@ -1,4 +1,5 @@
 ---
+# https://backstage.io/docs/features/software-catalog/descriptor-format/#kind-group
 apiVersion: backstage.io/v1alpha1
 kind: Group
 metadata:
@@ -9,3 +10,4 @@ spec:
   profile:
     displayName: Quarkus Team
   children: []
+
