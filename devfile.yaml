@@ -52,7 +52,7 @@ commands:
     exec:
       label: 1. Package the application
       component: tools
-      workingDir: '${PROJECTS_ROOT}/quarkus-quickstarts/getting-started'
+      workingDir: '${PROJECTS_ROOT}'
       commandLine: mvn package
       group:
         kind: build
@@ -68,7 +68,10 @@ commands:
         isDefault: true
   - id: command-1
     exec:
-      label: Sample Command
+      label: 3. Sample Command
       component: tools
-      commandLine: 'echo "${WELCOME}"'
+      commandLine: 'echo "${PROJECTS_ROOT}"'
       workingDir: '${PROJECT_SOURCE}'
+      group:
+        kind: run
+        isDefault: true
