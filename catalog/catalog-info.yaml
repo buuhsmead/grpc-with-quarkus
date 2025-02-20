@@ -9,3 +9,6 @@ spec:
     - ./system.yaml
     - ./quarkus-db.yaml
     - ./quarkusapp.yaml
+    - ./quarkusappapi.yaml
+
+    

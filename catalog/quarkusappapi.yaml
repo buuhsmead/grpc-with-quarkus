@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: openai-api
+  description: "OpenAPI specification for the Quarkus APP Application"
+  tags:
+    - api
+    - openapi
+    - openai
+spec:
+  type: openapi
+  lifecycle: production
+  owner: group:default/quarkusapp-dev-team
+  definition: 
+    $text: http://example-apicurioregistry-kafkasql.apicurio-registry-operator.router-default.apps.west.jgmpn.gcp.redhatworkshops.io/ui/artifacts/rhdh-dev/openapi/versions/latest
