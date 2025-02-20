@@ -9,6 +9,7 @@ metadata:
     - openai
 spec:
   type: openapi
+  system: quarkusapp
   lifecycle: production
   owner: group:default/quarkusapp-dev-team
   definition: 
