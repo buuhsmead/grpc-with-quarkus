@@ -6,4 +6,6 @@ metadata:
   title: quarkus app Dev Team
 spec:
   type: team
+  profile:
+    displayName: Quarkus Team
   children: []
