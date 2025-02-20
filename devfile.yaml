@@ -1,7 +1,7 @@
 schemaVersion: 2.2.0
 metadata:
   name: grpc-with-quarkus
-  icon: https://design.jboss.org/quarkus/logo/final/SVG/quarkus_icon_rgb_default.svg
+  icon: 'https://design.jboss.org/quarkus/logo/final/SVG/quarkus_icon_rgb_default.svg'
   displayName: Quarkus Java GRPC OPENAPI
   description: Quarkus with Java and gRPC and OpenApi
   tags:
@@ -14,12 +14,12 @@ metadata:
 projects:
   - git:
       remotes:
-        origin: https://github.com/buuhsmead/grpc-with-quarkus.git
+        origin: 'https://github.com/buuhsmead/grpc-with-quarkus.git'
     name: grpc-with-quarkus
 components:
   - name: tools
     container:
-      image: registry.redhat.io/devspaces/udi-rhel9:3.18
+      image: 'registry.redhat.io/devspaces/udi-rhel9:3.18'
       env:
         - name: QUARKUS_HTTP_HOST
           value: 0.0.0.0
@@ -33,13 +33,16 @@ components:
           protocol: https
           targetPort: 8080
           path: /hello/greeting/devspaces-user
+        - name: port-9000
+          targetPort: 9000
+          exposure: public
       volumeMounts:
         - name: m2
           path: /home/user/.m2
       cpuLimit: '4'
       cpuRequest: '1'
-      memoryLimit: '8G'
-      memoryRequest: '4G'
+      memoryLimit: 8G
+      memoryRequest: 4G
       mountSources: true
   - name: m2
     volume:
@@ -47,21 +50,25 @@ components:
 commands:
   - id: 1-package
     exec:
-      label: "1. Package the application"
+      label: 1. Package the application
       component: tools
-      workingDir: ${PROJECTS_ROOT}/quarkus-quickstarts/getting-started
-      commandLine: "mvn package"
+      workingDir: '${PROJECTS_ROOT}/quarkus-quickstarts/getting-started'
+      commandLine: mvn package
       group:
         kind: build
         isDefault: true
   - id: 2-startdev
     exec:
-      label: "2. Start Development mode (Hot reload + debug)"
+      label: 2. Start Development mode (Hot reload + debug)
       component: tools
-      workingDir: ${PROJECTS_ROOT}/quarkus-quickstarts/getting-started
-      commandLine: "mvn compile quarkus:dev"
+      workingDir: '${PROJECTS_ROOT}/quarkus-quickstarts/getting-started'
+      commandLine: 'mvn compile quarkus:dev'
       group:
         kind: run
         isDefault: true
-
-
+  - id: command-1
+    exec:
+      label: Sample Command
+      component: tools
+      commandLine: 'echo "${WELCOME}"'
+      workingDir: '${PROJECT_SOURCE}'
