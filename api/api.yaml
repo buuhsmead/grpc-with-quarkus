@@ -1,0 +1,120 @@
+openapi: 3.0.2
+info:
+    title: Echo Messages
+    version: 1.0.0
+    description: A brand new API with no content.  Go nuts!
+paths:
+    /echo:
+        get:
+            parameters:
+                - name: message
+                  description: The message as a string to be echo'd back.
+                  schema:
+                      type: string
+                  in: query
+                  required: true
+            responses:
+                "200":
+                    content:
+                        application/json:
+                            schema:
+                                type: string
+                            examples:
+                                echo-response:
+                                    value: '"some text"'
+                    description: All went well
+            summary: echo the message back
+    /echo-message-types:
+        summary: Path used to manage the list of echo-message-types.
+        description: The REST endpoint/path used to list and create zero or more
+            `echo-message-type` entities.  This path contains a `GET` and `POST`
+            operation to perform the list and create tasks, respectively.
+        get:
+            responses:
+                "200":
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    $ref: "#/components/schemas/echo-message-type"
+                    description: Successful response - returns an array of `echo-message-type`
+                        entities.
+            operationId: getecho-message-types
+            summary: List All echo-message-types
+            description: Gets a list of all `echo-message-type` entities.
+        post:
+            requestBody:
+                description: A new `echo-message-type` to be created.
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/echo-message-type"
+                required: true
+            responses:
+                "201":
+                    description: Successful response.
+            operationId: createecho-message-type
+            summary: Create a echo-message-type
+            description: Creates a new instance of a `echo-message-type`.
+    "/echo-message-types/{message}":
+        summary: Path used to manage a single echo-message-type.
+        description: The REST endpoint/path used to get, update, and delete single
+            instances of an `echo-message-type`.  This path contains `GET`,
+            `PUT`, and `DELETE` operations used to perform the get, update, and
+            delete tasks, respectively.
+        get:
+            responses:
+                "200":
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/echo-message-type"
+                    description: Successful response - returns a single `echo-message-type`.
+            operationId: getecho-message-type
+            summary: Get a echo-message-type
+            description: Gets the details of a single instance of a `echo-message-type`.
+        put:
+            requestBody:
+                description: Updated `echo-message-type` information.
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/echo-message-type"
+                required: true
+            responses:
+                "202":
+                    description: Successful response.
+            operationId: updateecho-message-type
+            summary: Update a echo-message-type
+            description: Updates an existing `echo-message-type`.
+        delete:
+            responses:
+                "204":
+                    description: Successful response.
+            operationId: deleteecho-message-type
+            summary: Delete a echo-message-type
+            description: Deletes an existing `echo-message-type`.
+        parameters:
+            - name: message
+              description: A unique identifier for a `echo-message-type`.
+              schema:
+                  type: string
+              in: path
+              required: true
+components:
+    schemas:
+        echo-message-type:
+            description: Description of the echo message type.
+            type: string
+    responses:
+        echo-message-response:
+            content:
+                application/json: {}
+            description: |
+                {"echo":"the content" }
+    securitySchemes:
+        openid:
+            openIdConnectUrl: https://keycloak-ingress-keycloak.apps.west.jgmpn.gcp.redhatworkshops.io
+            type: openIdConnect
+            description: OpenId with Keycloak OIDC
