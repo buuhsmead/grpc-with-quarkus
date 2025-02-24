@@ -35,8 +35,7 @@ spec:
               value: '2000'
             - name: QUARKUS_GRPC_SERVER_ENABLE_REFLECTION_SERVICE
               value: 'true'
-          # image: image-registry.openshift-image-registry.svc:5000/probeer2/grpc-with-quarkus:0.1.0-SNAPSHOT
-          image: grpc-with-quarkus:0.1.0-SNAPSHOT
+          image: image-registry.openshift-image-registry.svc:5000/app-team-b/grpc-with-quarkus:0.1.0-SNAPSHOT
           imagePullPolicy: Always
           livenessProbe:
             failureThreshold: 3
