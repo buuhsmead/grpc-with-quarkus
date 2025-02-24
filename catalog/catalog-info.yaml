@@ -6,7 +6,8 @@ metadata:
     # argocd/app-selector: '${ARGOCD_LABEL_SELECTOR}'
     argocd/app-selector: 'grpc-with-quarkus'
     # The Argo CD instance name used in `app-config.yaml`.
-    argocd/instance-name: 'DeveloperArgo'
+    argocd/instance-name: 'developer-gitops'
+    backstage.io/kubernetes-id: 'quarkusapp'
   name: grpc-with-quarkus-location
   description: A collection of all the catalog entities in the 'grpc-with-quarkus' example app
 spec:

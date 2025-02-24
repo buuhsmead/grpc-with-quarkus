@@ -3,7 +3,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    app.openshift.io/vcs-url: https://github.com/buuhsmead/grpc-with-quarkus.git
+    app.openshift.io/vcs-uri: https://github.com/buuhsmead/grpc-with-quarkus.git
+    app.openshift.io/vcs-ref: main
     # app.quarkus.io/commit-id: b36fec3731fd5384a8351434b4ae6a36ba1ef25b
     # app.quarkus.io/build-timestamp: 2023-07-12 - 08:20:58 +0000
   labels:
