@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: grpc-with-quarkus
+spec:
+  destination:
+    name: in-cluster
+    namespace: app-team-b
+    server: https://kubernetes.default.svc
+  source:
+    path: kustomize/base/app
+    repoURL: https://github.com/buuhsmead/grpc-with-quarkus.git
+    targetRevision: HEAD
+  sources: []
+  project: project-one
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
