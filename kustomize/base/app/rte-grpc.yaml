@@ -1,0 +1,13 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: route-grpc
+spec:
+  path: /
+  to:
+    kind: Service
+    name: grpc-with-quarkus
+    weight: 100
+  port:
+    targetPort: grpc
+  wildcardPolicy: None
