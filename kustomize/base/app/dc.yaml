@@ -34,8 +34,9 @@ spec:
             - name: TIMER_PERIOD
               value: '2000'
             - name: QUARKUS_GRPC_SERVER_ENABLE_REFLECTION_SERVICE
-              value: 'true'              
-          image: image-registry.openshift-image-registry.svc:5000/probeer2/grpc-with-quarkus:0.1.0-SNAPSHOT
+              value: 'true'
+          # image: image-registry.openshift-image-registry.svc:5000/probeer2/grpc-with-quarkus:0.1.0-SNAPSHOT
+          image: grpc-with-quarkus:0.1.0-SNAPSHOT
           imagePullPolicy: Always
           livenessProbe:
             failureThreshold: 3
@@ -74,8 +75,8 @@ spec:
           #       - /dev/null
           #       - '-w'
           #       - '%{http_code}'
-          #       - 'https://www.google.com'   
-          # curl -s -o /dev/null -w '%{http_code}' rpc-with-quarkus.poc-master.svc.cluster.local:8080/q/health/ready         
+          #       - 'https://www.google.com'
+          # curl -s -o /dev/null -w '%{http_code}' rpc-with-quarkus.poc-master.svc.cluster.local:8080/q/health/ready
           resources:
             requests:
               cpu: '10m'

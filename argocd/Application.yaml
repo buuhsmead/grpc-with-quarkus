@@ -4,7 +4,7 @@ metadata:
   name: grpc-with-quarkus
 spec:
   destination:
-    name: in-cluster
+    name: ''
     namespace: app-team-b
     server: https://kubernetes.default.svc
   source:
