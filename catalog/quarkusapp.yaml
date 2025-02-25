@@ -21,9 +21,8 @@ metadata:
     github.com/project-slug: myorg/quarkusapp
     quay.io/repository-slug: myorg/quarkusapp
     backstage.io/kubernetes-namespace: app-team-b
+    backstage.io/kubernetes-label-selector: 'app=quarkusapp'
 
-    backstage.io/kubernetes-label-selector: 'app=spring-petclinic'
-    argocd/app-selector: 'app=spring-petclinic'
 spec:
   type: website
   system: quarkusapp
