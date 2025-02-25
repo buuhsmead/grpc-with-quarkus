@@ -7,8 +7,7 @@ commonAnnotations:
   app.quarkus.io/build-timestamp: <<unknown>>
   app.quarkus.io/commit-id: <<unknown>>
 
-commonLabels:
-    backstage.io/kubernetes-id: 'quarkusapp'
+
 
 # - ns.yaml
 resources:
@@ -29,3 +28,8 @@ labels:
     app.kubernetes.io/version: 0.1.0-SNAPSHOT
     app.openshift.io/runtime: quarkus
     version: v1
+- includeSelectors: true
+  pairs:
+    argocd/app-name: quarkusapp
+    backstage.io/kubernetes-id: quarkusapp
+    app: quarkus
