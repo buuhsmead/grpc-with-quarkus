@@ -22,7 +22,7 @@ metadata:
     quay.io/repository-slug: myorg/quarkusapp
     backstage.io/kubernetes-namespace: app-team-b
     backstage.io/kubernetes-label-selector: 'app=quarkusapp'
-
+    argocd/app-namespace: app-team-b
 spec:
   type: website
   system: quarkusapp
