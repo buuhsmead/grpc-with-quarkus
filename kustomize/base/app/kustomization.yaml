@@ -27,9 +27,11 @@ labels:
     app.kubernetes.io/name: grpc-with-quarkus
     app.kubernetes.io/version: 0.1.0-SNAPSHOT
     app.openshift.io/runtime: quarkus
+    app.kubernetes.io/part-of: quarkusapp
     version: v1
 - includeSelectors: true
   pairs:
     argocd/app-name: quarkusapp
     backstage.io/kubernetes-id: quarkusapp
     app: quarkus
+
