@@ -11,8 +11,7 @@ spec:
     path: kustomize/base/app
     repoURL: https://github.com/buuhsmead/grpc-with-quarkus.git
     targetRevision: HEAD
-  sources: []
-  project: default
+  project: project-one
   syncPolicy:
     automated:
       prune: true
