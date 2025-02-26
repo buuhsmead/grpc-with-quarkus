@@ -15,14 +15,11 @@ metadata:
     - title: Slack
       url: https://quarkusapp.example.slack.com
   annotations:
-    argocd/instance-name: 'developer-gitops'
     argocd/app-name: 'quarkusapp'
     backstage.io/kubernetes-id: 'quarkusapp'
     github.com/project-slug: myorg/quarkusapp
     quay.io/repository-slug: myorg/quarkusapp
-    backstage.io/kubernetes-namespace: app-team-b
-    backstage.io/kubernetes-label-selector: 'app=quarkusapp'
-    argocd/app-namespace: app-team-b
+    backstage.io/kubernetes-namespace: 'app-team-b'
 spec:
   type: website
   system: quarkusapp
