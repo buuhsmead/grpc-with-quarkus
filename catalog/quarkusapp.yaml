@@ -17,13 +17,16 @@ metadata:
   annotations:
     argocd/app-name: 'grpc-with-quarkus'
     backstage.io/kubernetes-id: 'quarkusapp'
+    backstage.io/kubernetes-namespace: 'app-team-b'
     github.com/project-slug: myorg/quarkusapp
     quay.io/repository-slug: myorg/quarkusapp
-    backstage.io/kubernetes-namespace: 'app-team-b'
 spec:
-  type: website
+  type: service
   system: quarkusapp
   owner: quarkusapp-dev-team
   lifecycle: production
   dependsOn:
     - resource:quarkusappdb
+  providesApis:
+    - openai-api
+
