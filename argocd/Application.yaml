@@ -12,7 +12,7 @@ spec:
     repoURL: https://github.com/buuhsmead/grpc-with-quarkus.git
     targetRevision: HEAD
   sources: []
-  project: project-one
+  project: default
   syncPolicy:
     automated:
       prune: true
