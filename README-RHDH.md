@@ -48,7 +48,7 @@ curl -k $ARGOCD_SERVER/api/v1/applications -H "Authorization: Bearer $ARGOCD_TOK
 
 
 $ curl $ARGOCD_SERVER/api/v1/session -d $'{"username":"admin","password":"password"}'
-{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1Njc4MTIzODcsImlzcyI6ImFyZ29jZCIsIm5iZiI6MTU2NzgxMjM4Nywic3ViIjoiYWRtaW4ifQ.ejyTgFxLhuY9mOBtKhcnvobg3QZXJ4_RusN_KIdVwao"}
+{"token":"eyJhbG..._KIdVwao"}
 
 $ curl $ARGOCD_SERVER/api/v1/applications -H "Authorization: Bearer $ARGOCD_TOKEN"
 {"metadata":{"selfLink":"/apis/argoproj.io/v1alpha1/namespaces/argocd/applications","resourceVersion":"37755"},"items":...}
