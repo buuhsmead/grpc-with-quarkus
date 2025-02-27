@@ -22,7 +22,7 @@ metadata:
     argocd/app-selector: 'app=grpc-with-quarkus'
     github.com/project-slug: myorg/quarkusapp
     quay.io/repository-slug: myorg/quarkusapp
-    backstage.io/techdocs-ref: dir:.
+    backstage.io/techdocs-ref: 'dir:..'
 spec:
   type: service
   system: quarkusapp
