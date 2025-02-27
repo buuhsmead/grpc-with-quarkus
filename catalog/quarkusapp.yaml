@@ -18,9 +18,11 @@ metadata:
     #    argocd/app-name: 'grpc-with-quarkus'
     backstage.io/kubernetes-id: 'quarkusapp'
     backstage.io/kubernetes-namespace: 'app-team-b'
+    backstage.io/kubernetes-label-selector: 'app=grpc-with-quarkus'
+    argocd/app-selector: 'app=grpc-with-quarkus'
     github.com/project-slug: myorg/quarkusapp
     quay.io/repository-slug: myorg/quarkusapp
-    argocd/app-selector: "app=grpc-with-quarkus"
+
 spec:
   type: service
   system: quarkusapp
@@ -30,4 +32,3 @@ spec:
     - resource:quarkusappdb
   providesApis:
     - openai-api
-
