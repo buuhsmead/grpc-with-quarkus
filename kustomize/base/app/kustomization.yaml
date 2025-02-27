@@ -32,6 +32,5 @@ labels:
 - includeSelectors: true
   pairs:
     argocd/app-name: 'grpc-with-quarkus'
-    backstage.io/kubernetes-id: quarkusapp
     app: quarkus
 
