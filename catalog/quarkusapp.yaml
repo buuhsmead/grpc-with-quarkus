@@ -15,7 +15,7 @@ metadata:
     - title: Slack
       url: https://quarkusapp.example.slack.com
   annotations:
-#    argocd/app-name: 'grpc-with-quarkus'
+    #    argocd/app-name: 'grpc-with-quarkus'
     backstage.io/kubernetes-id: 'quarkusapp'
     backstage.io/kubernetes-namespace: 'app-team-b'
     github.com/project-slug: myorg/quarkusapp
