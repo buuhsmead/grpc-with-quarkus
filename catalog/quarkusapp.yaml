@@ -20,6 +20,7 @@ metadata:
     backstage.io/kubernetes-namespace: 'app-team-b'
     github.com/project-slug: myorg/quarkusapp
     quay.io/repository-slug: myorg/quarkusapp
+    argocd/app-selector: "app=grpc-with-quarkus"
 spec:
   type: service
   system: quarkusapp
