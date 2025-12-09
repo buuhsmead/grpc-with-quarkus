@@ -5,6 +5,7 @@ metadata:
   annotations:
     app.openshift.io/vcs-uri: https://github.com/buuhsmead/grpc-with-quarkus.git
     app.openshift.io/vcs-ref: main
+    argocd/app-name: grpc-with-quarkus
     # app.quarkus.io/commit-id: b36fec3731fd5384a8351434b4ae6a36ba1ef25b
     # app.quarkus.io/build-timestamp: 2023-07-12 - 08:20:58 +0000
   labels:
@@ -13,7 +14,7 @@ metadata:
     app.kubernetes.io/name: grpc-with-quarkus
     app.kubernetes.io/version: 0.1.0-SNAPSHOT
     app.kubernetes.io/part-of: quarkusapp
-    app: quarkus
+    app: grpc-with-quarkus
   name: grpc-with-quarkus
 spec:
   replicas: 1
