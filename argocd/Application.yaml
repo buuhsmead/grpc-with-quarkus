@@ -6,14 +6,13 @@ metadata:
     app: grpc-with-quarkus
 spec:
   destination:
-    name: ''
+    name: in-cluster
     namespace: app-team-b
-    server: https://kubernetes.default.svc
   source:
     path: kustomize/base/app
     repoURL: https://github.com/buuhsmead/grpc-with-quarkus.git
     targetRevision: HEAD
-  project: project-one
+  project: default
   syncPolicy:
     automated:
       prune: true
