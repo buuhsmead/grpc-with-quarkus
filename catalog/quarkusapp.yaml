@@ -23,6 +23,7 @@ metadata:
     github.com/project-slug: myorg/quarkusapp
     quay.io/repository-slug: myorg/quarkusapp
     backstage.io/techdocs-ref: 'dir:..'
+    tekton.dev/cicd : 'true'
 spec:
   type: service
   system: quarkusapp
