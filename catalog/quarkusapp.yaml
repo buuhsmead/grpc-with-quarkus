@@ -18,7 +18,7 @@ metadata:
     #    argocd/app-name: 'grpc-with-quarkus' # DONOT instead use 'argocd/app-selector'
     # backstage.io/kubernetes-id: 'quarkusapp'
     backstage.io/kubernetes-namespace: 'app-team-b'
-    backstage.io/kubernetes-label-selector: 'app=quarkus'
+    backstage.io/kubernetes-label-selector: 'app=grpc-with-quarkus'
     argocd/app-selector: 'app=grpc-with-quarkus'
     github.com/project-slug: myorg/quarkusapp
     quay.io/repository-slug: myorg/quarkusapp
