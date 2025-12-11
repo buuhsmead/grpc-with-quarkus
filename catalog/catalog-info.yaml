@@ -3,8 +3,9 @@ kind: Location
 metadata:
   name: grpc-with-quarkus-location
   description: A collection of all the catalog entities in the 'grpc-with-quarkus' example app
-  # annotations:
-    # backstage.io/kubernetes-id: 'quarkusapp'
+  annotations:
+    tekton.dev/cicd : "true"
+    backstage.io/kubernetes-id: 'grpc-with-quarkus'
 spec:
   targets:
     - ./group.yaml
