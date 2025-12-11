@@ -5,7 +5,9 @@ metadata:
   description: A collection of all the catalog entities in the 'grpc-with-quarkus' example app
   annotations:
     tekton.dev/cicd : "true"
-    backstage.io/kubernetes-id: 'grpc-with-quarkus'
+    backstage.io/kubernetes-id: grpc-with-quarkus
+    janus-idp.io/tekton : grpc-with-quarkus
+    backstage.io/kubernetes-label-selector: 'app=grpc-with-quarkus'
 spec:
   targets:
     - ./group.yaml
