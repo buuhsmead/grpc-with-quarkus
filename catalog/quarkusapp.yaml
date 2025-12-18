@@ -24,7 +24,7 @@ metadata:
     quay.io/repository-slug: myorg/quarkusapp
     backstage.io/techdocs-ref: 'dir:..'
     tekton.dev/cicd : 'true'
-    sonarqube.org/project-key: my-project-key/18b999bd942916986d3dfd733a3564cae1436de9
+    sonarqube.org/project-key: dev-instance/my-project-key
 spec:
   type: service
   system: quarkusapp
