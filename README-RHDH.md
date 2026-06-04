@@ -16,6 +16,7 @@ https://www.npmjs.com/package/@backstage-community/plugin-redhat-argocd
 annotations: - catalog-info.yaml - Component.yaml
   argocd/app-name: <argoproj.io/v1alpha1.Application.metadata.name> - argocd # DONOT instead use 'argocd/app-selector
   argocd/app-selector: 'app=grpc-with-quarkus'
+  argocd/app-selector: 'app.kubernetes.io/instance=rhtap-nodeapp'
   backstage.io/kubernetes-id: 'quarkusapp' <BACKSTAGE_ENTITY_NAME> - argocd
   backstage.io/kubernetes-namespace: 'pp-team-b' <RESOURCE_NS> <NAMESPACE for Deployment> - argocd
   backstage.io/kubernetes-label-selector: 'app=grpc-with-quarkus'

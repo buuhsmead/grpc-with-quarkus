@@ -2,7 +2,9 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: grpc-with-quarkus
-  label:
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"  
+  labels:
     app: grpc-with-quarkus
 spec:
   destination:
@@ -15,5 +17,11 @@ spec:
   project: default
   syncPolicy:
     automated:
-      prune: true
-      selfHeal: true
+      prune: false
+      selfHeal: false
+
+# What 'selfHeal: true' does:
+# Automatically syncs the cluster state to match Git whenever any drift is detected — no human approval, no visibility into what changed.
+
+# Combined with 'prune: true', any resource created outside Git (e.g., temporary debug pods, metrics sidecars) gets deleted automatically
+
